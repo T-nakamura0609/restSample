@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta content="ja" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Request ZipCode</title>
+</head>
+<body>
+	<h1>Form</h1>
+
+	<form method="POST" action="/zipcode/confirm1">
+		<table class="sample-table">
+			<tr>
+				<th>郵便番号</th>
+				<td><input type="text" name="zipcode" value="" size="30"></input></td>
+			</tr>
+		</table>
+		<input type="submit" value="送信" size="30"></input> <font
+			color="#ff0000"><th:block th:text="${errorMessage}"></th:block></font>
+	</form>
+
+	<form method="POST" action="#" th:action="@{/zipcode/confirm2}"
+		th:object="${zipcodeRequestResource}">
+		<table class="sample-table">
+			<tr>
+				<th>郵便番号</th>
+				<td><input type="text" th:field="*{zipcode}"  size="30"></input></td>
+			</tr>
+		</table>
+		<input type="submit" value="送信" size="30"></input> <font
+			color="#ff0000"><th:block th:text="${errorMessage}"></th:block></font>
+	</form>
+</body>
+</html>

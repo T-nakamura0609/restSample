@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta content="ja" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>HTTPReciever</title>
+</head>
+
+<body>
+
+<p>APIの受信メッセージは</p>
+
+<form method="POST" action="/zipcode/input">
+		<table class="sample-table" th:each="item : ${zipcodeList}"
+			th:object="${item}">
+			<tr>
+				<th>郵便番号</th>
+				<td th:text="*{zipcode}">aaa</td>
+			</tr>
+			<tr>
+				<th>都道府県コード</th>
+				<td th:text="*{prefcode}">bbb</td>
+			</tr>
+			<tr>
+				<th>都道府県名</th>
+				<td th:text="*{address1}">ccc</td>
+			</tr>
+			<tr>
+				<th>市区町村名</th>
+				<td th:text="*{address2}">ddd</td>
+			</tr>
+			<tr>
+				<th>町域名</th>
+				<td th:text="*{address3}">eee</td>
+			</tr>
+
+			<tr>
+				<th>都道府県名カナ</th>
+				<td th:text="*{kana1}">fff</td>
+			</tr>
+			<tr>
+				<th>市区町村名カナ</th>
+				<td th:text="*{kana2}">ggg</td>
+			</tr>
+			<tr>
+				<th>町域名カナ</th>
+				<td th:text="*{kana3}">hhh</td>
+			</tr>
+		</table>
+		<input type="submit" value="戻る" size="30"></input>
+	</form>
+
+</body>
+
+</html>
